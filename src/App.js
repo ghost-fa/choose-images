@@ -10,6 +10,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <NavBar />
+      <Search />
 
     </MuiThemeProvider>
     );
