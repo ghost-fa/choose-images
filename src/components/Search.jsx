@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import TextField from 'material-ui/TextField'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem';
-import axios from 'axios'
+import axios from 'axios';
+
 
 class Search extends Component{
   state = {
@@ -19,6 +20,7 @@ class Search extends Component{
     });
   }
 
+onAmountChange = (e, index, value) => this.setState({amount:value})
   render(){
     console.log(this.state.images)
     return(
