@@ -11,16 +11,16 @@ class Search extends Component{
     apiUrl : 'https://pixabay.com/api/',
     apiKey : '10046199-3365a577732ff746787874537',
     images:[]
-  }
+  };
 
   changeText = (e) =>{
     this.setState({[e.target.name]:e.target.value}, () =>{
-      axios.get(`{this.state.apiUrl}/?key=${this.state.apiKey}&q=${this.state.ssearchText}/&image_teyp=photo&per_page=${this.state.amount}&safesearch=true`).then(res => this.setState({images:res.date.hits})).catch(err => console.log(err))
+      axios.get(`{this.state.apiUrl}/?key=${this.state.apiKey}&q=${this.state.searchText}&image_type=photo&per_page=${this.state.amount}&safesearch=true`).then(res => this.setState({images:res.date.hits})).catch(err => console.log(err))
     });
   }
-  
+
   render(){
-    console.log(this.state.image)
+    console.log(this.state.images)
     return(
       <Fragment >
       <TextField
