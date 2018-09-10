@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem';
 import axios from 'axios';
-
+import ImagesResults from './ImagesResults'
 
 class Search extends Component{
   state = {
@@ -14,9 +14,9 @@ class Search extends Component{
     images:[]
   };
 
-  changeText = (e) =>{
+  onTextChange = (e) =>{
     this.setState({[e.target.name]:e.target.value}, () =>{
-      axios.get(`{this.state.apiUrl}/?key=${this.state.apiKey}&q=${this.state.searchText}&image_type=photo&per_page=${this.state.amount}&safesearch=true`).then(res => this.setState({images:res.date.hits})).catch(err => console.log(err))
+      axios.get(`${this.state.apiUrl}/?key=${this.state.apiKey}&q=${this.state.searchText}&image_type=photo&per_page=${this.state.amount}&safesearch=true`).then(res => this.setState({images:res.date.hits})).catch(err => console.log(err))
     });
   }
 
@@ -28,7 +28,7 @@ onAmountChange = (e, index, value) => this.setState({amount:value})
       <TextField
          name="searchText"
          value={this.state.searchText}
-         onChange={this.changeText}
+         onChange={this.onTextChange}
          floatingLabelText= 'Search from Iamages'
          fullWidth={true}
       />
@@ -44,6 +44,7 @@ onAmountChange = (e, index, value) => this.setState({amount:value})
           <MenuItem value={30} primaryText="30" />
           <MenuItem value={50} primaryText="50" />
           </SelectField>
+          {this.state.images.length > 0 ? (<ImagesResults  images={this.state.images}/>): null}
 
 </Fragment>
     )

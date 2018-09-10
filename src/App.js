@@ -9,9 +9,10 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
+        <div>
       <NavBar />
       <Search />
-
+</div>
     </MuiThemeProvider>
     );
   }
