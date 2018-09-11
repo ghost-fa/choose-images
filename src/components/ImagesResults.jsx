@@ -6,7 +6,10 @@ import ZoomIn from 'material-ui/svg-icons/action/zoom-in';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 class ImagesResults extends Component{
-
+  state = {
+    open:false,
+    currentImg:''
+  }
   render(){
     let imageListContent;
     const {images} = this.props
