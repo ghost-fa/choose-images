@@ -9,7 +9,7 @@ class Search extends Component{
   state = {
     searchText : ' ',
     amount: 15,
-    apiUrl : 'https://pixabay.com/api/',
+    apiUrl : 'https://pixabay.com/api',
     apiKey : '10046199-3365a577732ff746787874537',
     images:[]
   };
