@@ -10,6 +10,13 @@ class ImagesResults extends Component{
     open:false,
     currentImg:''
   }
+  handleOpen = img =>{
+    this.setState({open:true, currentImg:img})
+  }
+
+  handleClose = () =>{
+    this.setState({open:false})
+  }
   render(){
     let imageListContent;
     const {images} = this.props
@@ -25,7 +32,7 @@ class ImagesResults extends Component{
                 </span>
               }
               actionIcon={
-                <IconButton>
+                <IconButton onClick={ () =>this.handleOpen(img.largImageURL)}>
                   <ZoomIn color="white" />
                 </IconButton>
               }
@@ -38,9 +45,19 @@ class ImagesResults extends Component{
     }else {
       imageListContent = null;
     }
+    const actions = [
+      <FlatButton label='Close' primary={true} onClick={this.handleClose} />
+    ]
     return(
       <Fragment>
           {imageListContent}
+          <Dialog
+          actions={actions}
+          model={false}
+        open={this.state.open}
+      onRequestClose={this.handleClose}>
+        <img src={this.state.currentImg} alt="" style={{width:'100%'}}/>
+      </Dialog>
       </Fragment>)
   }
 }
