@@ -22,7 +22,7 @@ class ImagesResults extends Component{
     const {images} = this.props
     if(images){
       imageListContent = (
-        <GridList cols={3}>
+        <GridList cols={4} >
           {images.map(img => (
             <GridTile title={img.tags}
               key={img.id}
@@ -37,7 +37,7 @@ class ImagesResults extends Component{
                 </IconButton>
               }
               >
-             <img src={img.largImageURL} alt=""/>
+             <img src={img.previewURL} alt=""/>
             </GridTile>
           ))}
         </GridList>
