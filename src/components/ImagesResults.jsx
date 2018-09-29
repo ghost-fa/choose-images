@@ -32,7 +32,7 @@ class ImagesResults extends Component{
                 </span>
               }
               actionIcon={
-                <IconButton onClick={ () =>this.handleOpen(img.largImageURL)}>
+                <IconButton onClick={ () =>this.handleOpen(img.previewURL)}>
                   <ZoomIn color="white" />
                 </IconButton>
               }
